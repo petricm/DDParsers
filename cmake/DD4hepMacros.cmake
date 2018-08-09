@@ -84,18 +84,16 @@ MACRO( DD4HEP_GENERATE_PACKAGE_CONFIGURATION_FILES )
                 CONFIGURE_FILE( "${PROJECT_SOURCE_DIR}/cmake/${arg}.in"
                                 "${PROJECT_BINARY_DIR}/${arg}" @ONLY
                 )
-                INSTALL( FILES "${PROJECT_BINARY_DIR}/${arg}" DESTINATION . )
                 INSTALL( FILES "${PROJECT_BINARY_DIR}/${arg}" DESTINATION ./cmake )
             ENDIF()
         ENDIF()
     ENDFOREACH()
 
     INCLUDE( CMakePackageConfigHelpers )
-    WRITE_BASIC_PACKAGE_VERSION_FILE( DD4hepConfigVersion.cmake
+    WRITE_BASIC_PACKAGE_VERSION_FILE( "DDParsersConfigVersion.cmake"
                                       VERSION ${DD4hep_VERSION}
                                       COMPATIBILITY AnyNewerVersion )
-    INSTALL( FILES "${PROJECT_BINARY_DIR}/DD4hepConfigVersion.cmake" DESTINATION . )
-    INSTALL( FILES "${PROJECT_BINARY_DIR}/DD4hepConfigVersion.cmake" DESTINATION ./cmake )
+    INSTALL( FILES "${PROJECT_BINARY_DIR}/DDParsersConfigVersion.cmake" DESTINATION ./cmake )
 
 ENDMACRO( DD4HEP_GENERATE_PACKAGE_CONFIGURATION_FILES )
 
